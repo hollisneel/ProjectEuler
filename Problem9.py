@@ -26,8 +26,8 @@ bcomp = 0
 ccomp = 0
 acomp2 = 0
 bcomp2 = 0
-ccomp3 = 0
-for m in range(1,20000):
+ccomp2 = 0
+for m in range(1,250):
 	for n in range(1,m+1):
 		acomp = m*m-n*n
 		bcomp = 2*m*n
@@ -36,17 +36,20 @@ for m in range(1,20000):
 		bcomp2 = bcomp
 		ccomp2 = ccomp
 		k = 1
-		while acomp2+bcomp2+ccomp2 <= 1000 and ccomp2 != 0:
-			acomp2 = k*acomp 
+		while acomp2 + bcomp2 +ccomp2 <= 1000:
+			acomp2 = k*acomp
 			bcomp2 = k*bcomp
 			ccomp2 = k*ccomp
-			k += 1
+			k+=1
+			if acomp2+bcomp2+ccomp2 == 1000:
+				triples.append([acomp2,bcomp2,ccomp2,acomp2+bcomp2+ccomp2])
+				break
 		triples.append([acomp2,bcomp2,ccomp2,acomp2+bcomp2+ccomp2])
 for x in range(len(triples)):
-	if triples[a][3] == 1000:
-		a = triples[a][0]
-		b = triples[a][1]
-		c = triples[a][2]
+	if triples[x][3] == 1000 and triples[x][0] != 0 and triples[x][1] != 0 and triples[x][2] != 0:
+		a = triples[x][0]
+		b = triples[x][1]
+		c = triples[x][2]
 
 print" a = ", a
 print" b = ", b
