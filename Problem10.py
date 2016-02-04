@@ -32,4 +32,4 @@ def sum_primes_below(num_below):
 	print summ
 	return summ	
 
-a = sum_primes_below(10000000)
+a = sum_primes_below(1000000000)
